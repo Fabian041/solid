@@ -19,9 +19,9 @@
 	<link rel="stylesheet" href="{{ asset('/css/styles.css') }}">
 	<link rel="stylesheet" href="{{ asset ('/css/select2.min.css') }}">
 	
-   	<script src="{{asset('/js/jquery-latest.min.js')}}"></script>
-   	<script src="{{asset('/js/script.js')}}"></script>
+   	<!-- <script src="{{asset('/js/jquery-latest.min.js')}}"></script> -->   	
 	<script src="{{asset('/js/jquery-2.1.3.min.js')}}"></script>
+	<script src="{{asset('/js/script.js')}}"></script>
 	<script src="{{asset('/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('/js/select2.full.min.js') }}"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
