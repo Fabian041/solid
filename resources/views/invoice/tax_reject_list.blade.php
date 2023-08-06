@@ -10,16 +10,16 @@
                             <span class='badge badge-info'>@foreach ($result as $result) {{ $result->a }} @endforeach</span></b></font>
                         </a>
                     </li>
-                    <li class="active">
-                        <a>
-                            <big><big><big><font face='calibri' color='grey'><b>INVOICE APPROVED
-                            <span class='badge badge-info'>@foreach ($result3 as $result3) {{ $result3->c }} @endforeach</span></b></font></big></big></big>
+                    <li>
+                        <a href="{{ url('invoice/act/approve/list') }}">
+                            <font face='calibri' color='grey'><b>INVOICE APPROVED
+                            <span class='badge badge-info'>@foreach ($result3 as $result3) {{ $result3->c }} @endforeach</span></b></font>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ url('invoice/act/reject/list') }}">
-                            <font face='calibri' color='grey'><b>INVOICE REJECTED
-                            <span class='badge badge-info'>@foreach ($result2 as $result2) {{ $result2->b }} @endforeach</span></b></font>
+                    <li class="active">
+                        <a>
+                            <big><big><big><font face='calibri' color='grey'><b>INVOICE REJECTED
+                            <span class='badge badge-info'>@foreach ($result2 as $result2) {{ $result2->b }} @endforeach</span></b></font></big></big></big>
                         </a>
                     </li>
                 </ul>
@@ -39,7 +39,7 @@
                         <th><small><font face='calibri'>AMOUNT</font></small></th>
                         <th><small><font face='calibri'>DOC NO</font></small></th>
                         <th><small><font face='calibri'>NO PO</font></small></th>
-                        <th><small><font face='calibri'>Action</font></small></th>
+                        <th><small><font face='calibri'>REASON</font></small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,19 +77,18 @@
                     <td><center><font face='calibri'>{{ $invoice->doc_date }}</font></center></td>
                     <td><center><font face='calibri'>{{ $invoice->due_date }}</font></center></td>
                     <td><font face='calibri'>{{ $invoice->curr }}</font></td>
-                    <td><font face='calibri'>{{ number_format((float)$invoice->amount) }}</font></td>
+                    <td><font face='calibri'>{{ number_format((float)$invoice->amount) }}</font></td> <!-- hotfix-3.0.7, by yudo, 20170508, number format -->
                     <td><font face='calibri'>{{ $invoice->doc_no_2 }}</font></td>
                     <td><font face='calibri'>{{ $invoice->no_po }}</font></td>
-                    <td><a href="{{ url('invoice/send/tax/'.$invoice->id) }}" class="btn btn-primary btn-xs" 
-                        onclick="return confirm('Apakah anda yakin akan melakukan approve untuk invoice dengan no penerimaan \'{{$invoice->no_penerimaan}}\'?')">
-                        <font face='calibri'><b>Kirim Doc</b></font>
-                    </a>&nbsp;
-                    </td>
+                    <td><small>
+                        <font face='calibri'>{{ $invoice->remark_act }}<br/>
+                            {{ $invoice->tgl_pending_act }}</font>
+                    </small></td>
                 </tr>
                 @endforeach
             @else
                 <tr bgcolor='#FFFFFF'>
-                    <td colspan="11"><center><font face='calibri'>No record to display</font></center></td>
+                    <td colspan="12"><center><font face='calibri'>No record to display</font></center></td>
                 </tr>
             @endif
                 </tbody>

@@ -209,6 +209,8 @@
 		                    }    
 		                    elseif ($role == '2') {
 		                        $a = 'Accounting';
+		                    }elseif ($role == '10') {
+		                        $a = 'Tax';
 		                    }
 		                    elseif ($role == '3') {
 		                        $a = 'Finance';

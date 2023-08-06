@@ -139,7 +139,7 @@
 </div>
 <br/>
 
-@if (count($view) > 0)
+@if (count($m_payment) > 0)
 <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('/js/dataTables.bootstrap.js')}}"></script>
 <script>
